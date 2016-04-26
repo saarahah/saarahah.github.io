@@ -1,0 +1,199 @@
+
+#trail0 {
+    /*z-index: 5;*/
+    position: absolute;
+        left: 0px;
+      right : 0px;
+      width : 900;
+      height: 900;
+      z-index : 1;
+
+      /*margin-left : 20em;*/
+
+}
+#trail1 {
+    /*z-index: 5;*/
+    position: absolute;
+    /*display : none;*/
+        left: 0px;
+      right : 0px;
+      width : 900;
+      height: 900;
+      z-index : 1;
+      /*margin-left : 20em;*/
+}
+#trail2 {
+    /*z-index: 5;*/
+    position: absolute;
+    /*display : none;*/
+        left: 0px;
+      right : 0px;
+      width : 900;
+      height: 900;
+      z-index : 1;
+
+      /*margin-left : 20em;*/
+}
+#trail3 {
+    /*z-index: 5;*/
+    position: absolute;
+    /*display : none;*/
+        left: 0px;
+      right : 0px;
+      width : 900;
+      height: 900;
+      z-index : 1;
+
+      /*margin-left : 20em;*/
+}
+#trail4 {
+    /*z-index: 5;*/
+    position: absolute;
+    /*display : none;*/
+        left: 0px;
+      right : 0px;
+      width : 900;
+      height: 900;
+      z-index : 1;
+
+      /*margin-left : 20em;*/
+}
+#trail5 {
+    /*z-index: 5;*/
+    position: absolute;
+    /*display : none;*/
+        left: 0px;
+      right : 0px;
+      width : 900;
+      height: 900;
+      z-index : 1;
+
+      /*margin-left : 20em;*/
+}
+
+
+#canv0 {
+    /*z-index: 6;*/
+    position: absolute;
+}
+#canv1 {
+    /*z-index: 6;*/
+    position: absolute;
+}
+#canv2 {
+    z-index: 4;
+    position: absolute;
+}
+#canv3 {
+    z-index:3;
+    position: absolute;
+}
+#page1_canv0 {
+    /*z-index: 6;*/
+       position : absolute;
+    margin-left : 10em;
+
+}
+#page1_canv1 {
+    /*z-index: 6;*/
+       position : absolute;
+    margin-left : 10em;
+
+}
+#page1_canv2 {
+    z-index: 4;
+       position : absolute;
+    margin-left : 10em;
+
+}
+#page1_canv3 {
+    z-index:3;
+       position : absolute;
+    margin-left : 10em;
+
+}
+#page2_canv0 {
+   position : absolute;
+   /*margin-left: 20em*/
+    /*height  : 600;
+    width   : 600;*/
+}
+#canv4 {
+    z-index: 2;
+    position: absolute;
+}
+#canv5 {
+    z-index: 1;
+    position: absolute;
+}
+#redactionCanvas3 {
+    z-index: 3;
+}
+#redactionCanvas4 {
+    z-index: 4;
+}
+#redactionCanvas5 {
+    z-index: 5;
+}
+
+#indexText {
+    margin-left: 30em;
+    margin-top: 30em;
+    position:absolute;
+    text-decoration: none;
+    font-family:monospace;
+}
+
+.intersectionCanvas {
+    visibility: collapse;
+}
+.clippingPlane {
+    visibility: collapse;
+}
+#tv_canvas{
+   margin-left : 10em;
+   margin-top  : 10em;
+}
+#first_quote{
+    margin-top : 30em;
+}
+#first_quote_div{
+    margin-top : 35em;
+
+}
+#second_quote_div {
+  margin-top : 55em;
+  z-index = 10;
+
+}
+#third_quote_div{
+     margin-top : 60em;
+
+}
+.onTheRedactionCanvas{
+   position : absolute;
+}
+#page3_canv0{
+   postion : absolute;
+   z-index : 6;
+}
+#page3_canv1{
+   postion : absolute;
+   z-index : 5;
+}
+#page3_canv2{
+   postion : absolute;
+   z-index : 4;
+}
+#page3_canv3{
+   postion : absolute;
+   z-index : 3;
+}
+#page3_canv4{
+   postion : absolute;
+   z-index : 2;
+}
+#page3_canv5{
+   postion : absolute;
+   z-index : 1;
+}
