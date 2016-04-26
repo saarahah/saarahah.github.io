@@ -19,9 +19,9 @@
 </div>
 <img   id="imgurl2" src="http://207.30.63.82/mjpg/video.mjpg" style="display: none";   >
 <video id="video1" loop autoplay style="display:none">
-  <source src="Recording29.mp4" type="video/mp4">
+  <source src="Recording31.mp4" type="video/mp4">
 </video>
-<img src="http://207.30.63.82/mjpg/video.mjpg" width="568" style='display:none'>
+<img src="http://207.30.63.82/mjpg/video.mjpg" style='display:none'>
 
 <script>
 var livefeed;
@@ -87,7 +87,7 @@ setInterval(function(){
 
     function trail(context, alpha, mousex, mousey, radius){
         context.globalAlpha = alpha;
-        context.clearRect(0, 0, 1000, 1000);
+        context.clearRect(0, 0, 900, 900);
         context.save();
         context.beginPath();
         context.arc(mousex, mousey, radius, 0, Math.PI * 2, true);
