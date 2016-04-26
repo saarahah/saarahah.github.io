@@ -1,0 +1,139 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="stylesheetasdf.css" type="text/css">
+</head>
+<body onload="init()"
+      onmousemove="getMousePosition(event)"
+      onmousedown="firstPoint(x, y)"
+      onmouseup="drawOnBuffer1(x,y)">
+     <!-- menu divs -->
+
+    <!-- canvases -->
+<canvas id="page3_canv0"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
+<canvas id="page3_canv1"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
+<canvas id="page3_canv2"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
+<canvas id="page3_canv3"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
+<canvas id="page3_canv4"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
+<canvas id="page3_canv5"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
+<br><br>
+<div id="third_quote_div">
+
+    <a href="index.html" id="first_quote">Next</a>
+</div>
+
+
+<canvas id="clip0"; class="clippingPlane"; width="900"; height="900" style="display:none" ></canvas>
+<canvas id="clip1"; class="clippingPlane"; width="900"; height="900" style="display:none" ></canvas>
+<canvas id="clip2"; class="clippingPlane"; width="900"; height="900" style="display:none"></canvas>
+<canvas id="clip3"; class="clippingPlane"; width="900"; height="900" style="display:none"></canvas>
+<canvas id="clip4"; class="clippingPlane"; width="900"; height="900" style="display:none"></canvas>
+<canvas id="clip5"; class="clippingPlane"; width="900"; height="900" style="display:none"></canvas>
+
+<canvas id="inter0"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
+<canvas id="inter1"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
+<canvas id="inter2"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
+<canvas id="inter3"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
+<canvas id="inter4"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
+<canvas id="inter5"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
+
+<!-- <img id="imgurl0" src="http://208.125.131.249/image",                 style="display:none"> -->
+<img id="imgurl0" src="http://208.84.193.88:8888/mjpg/video.mjpg";    style="display:none">
+<img id="imgurl1" src="http://108.244.144.225/mjpg/video.mjpg?COUNTER";    style="display:none">
+<img id="imgurl2" src="http://64.118.101.86:9001/mjpg/video.mjpg";    style="display:none">
+<img id="imgurl3" src="http://79.141.146.217/axis-cgi/mjpg/video.cgi"; style="display:none">
+<img id="imgurl4" src="http://64.119.5.198:8080/image";               style="display:none">
+<img id="imgurl5" src="http://74.164.25.34/mjpg/video.mjpg";          style="display:none">
+
+
+<script>
+    var loaded = false;
+    var imgurl0, canvas0, context0;
+    var canvArray       = []; //red, green, blue, purple, yellow, black
+    var cntxtArray      = [];
+    var clipArray       = [];
+    var clipCntxtArray  = [];
+    var interArray      = [];
+    var interCntxtArray = [];
+    var imgurlArr       = [];
+
+       function init(){
+         for (var i = 0; i < 6; i++){
+             imgurlArr[i]  = document.getElementById("imgurl" + i);
+             canvArray[i]  = document.getElementById("page3_canv" + i);
+            //  canvArray[i].width  = 900;
+            //  canvArray[i].height = 900;
+             cntxtArray[i]     = canvArray[i].getContext("2d");
+             clipArray[i]      = document.getElementById("clip" + i);
+             clipCntxtArray[i] = clipArray[i].getContext("2d");
+
+             interArray[i] = document.getElementById("inter" + i);
+             interCntxtArray[i] = interArray[i].getContext("2d");
+             console.log("done with ", i);
+         }
+         loaded = true;
+         for (var i = 0; i < 6; i++){
+             cntxtArray[i].drawImage(imgurlArr[i], 0, 0, 900, 900);
+         }
+      }
+
+      // setInterval(function(){
+        //  if(loaded == true){
+        //   for (var i = 0; i < 6; i++){
+        //       cntxtArray[i].drawImage(imgurlArr[i], 0, 0, 900, 900);
+        //   }
+        // }
+
+        // }else{console.log("canvas hasn't loaded yet.");} }, 10000);
+
+
+
+
+    function getMousePosition(event) {
+        if (loaded){
+            var area = canvArray[0].getBoundingClientRect();
+             x = event.clientX - area.left;
+             y = event.clientY - area.top;
+            //  console.log("x = ", x, " y = ", y);
+        }
+    }
+
+    function firstPoint(x, y) {
+        upperLeftX = x;
+        upperLeftY = y;
+    }
+
+    function drawOnBuffer1(x, y) {
+        console.log("draw on buffer");
+        finalX = x;
+        finalY = y;
+
+        if (upperLeftX - finalX == 0 && upperLeftY - finalY == 0) {
+            //console.log("it happened");
+            finalX += 1;
+            finalY +=1;
+            }
+
+        clipCntxtArray[0].fillRect(upperLeftX, upperLeftY, (finalX - upperLeftX), (finalY - upperLeftY));
+        cntxtArray[0].globalCompositeOperation = "destination-out";
+        cntxtArray[0].drawImage(clipArray[0], 0, 0);
+
+        for (var i = 0; i < 4; i++) {
+            interCntxtArray[i].globalCompositeOperation = "source-in";
+            interCntxtArray[i].fillRect(upperLeftX, upperLeftY, (finalX - upperLeftX), (finalY - upperLeftY));
+            var currentIntersection = interCntxtArray[i].getImageData(0, 0, interArray[i].width, interArray[i].height)
+            clipCntxtArray[i+1].putImageData(currentIntersection, 0, 0);
+            cntxtArray[i + 1].globalCompositeOperation = "destination-out";
+            cntxtArray[i + 1].drawImage(clipArray[i + 1], 0, 0);
+            }
+
+        for(var i = 0; i < 6; i ++) {
+            interCntxtArray[i].globalCompositeOperation="source-over";
+            var updatedBuffer = clipCntxtArray[i].getImageData(0, 0, interArray[i].width, interArray[i].height);
+            interCntxtArray[i].putImageData(updatedBuffer, 0, 0);
+            }
+    }
+
+</script>
+</body>
+</html>

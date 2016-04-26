@@ -1,0 +1,125 @@
+<html>
+<head>
+<title></title>
+<!-- <link rel="stylesheet" href="stylesheetasdf.css" type="text/css"> -->
+</head>
+<body onload="init()" onmousemove="getMousePosition(event)">
+<link rel="stylesheet" href="stylesheetasdf.css" type="text/css">
+<canvas id="page2_canv0"    width="900"; height="900"; style="postion:absolute; left=0px; right=0px"></canvas>
+
+<canvas id="trail0";    width="900"; height="900"></canvas>
+<canvas id="trail1";    width="900"; height="900"></canvas>
+<canvas id="trail2";    width="900"; height="900"></canvas>
+<canvas id="trail3";    width="900"; height="900"></canvas>
+<canvas id="trail4";    width="900"; height="900"></canvas>
+<canvas id="trail5";    width="900"; height="900"></canvas>
+<br>
+<div id="second_quote_div">
+    <a href="surveillance2.html" id="second_quote">Next</a>
+</div>
+<img   id="imgurl2" src="http://207.30.63.82/mjpg/video.mjpg" style="display: none";   >
+<video id="video1" loop autoplay style="display:none">
+  <source src="Recording29.mp4" type="video/mp4">
+</video>
+<img src="http://207.30.63.82/mjpg/video.mjpg" width="568" style='display:none'>
+
+<script>
+var livefeed;
+var livecanvas;
+var livecontext;
+var loaded = false;
+var video1;
+var videocanvas;
+var videocontext;
+
+var mousearray=[[0,0],[0,0],[0,0],[3,3],[2,2], [0,0]];
+
+function init(){
+    livefeed     = document.getElementById("imgurl2");
+    livecanvas   = document.getElementById("page2_canv0");
+    livecontext  = livecanvas.getContext("2d");
+    video1       = document.getElementById("video1");
+    // videocanvas  = document.getElementById("videocanv");
+    videocontext = livecanvas.getContext("2d");
+
+
+    trail0 = document.getElementById("trail0");
+    trail1 = document.getElementById("trail1");
+    trail2 = document.getElementById("trail2");
+    trail3 = document.getElementById("trail3");
+    trail4 = document.getElementById("trail4");
+    trail5 = document.getElementById("trail5");
+
+    t0ctx  = trail0.getContext("2d");
+    t1ctx  = trail1.getContext("2d");
+    t2ctx  = trail2.getContext("2d");
+    t3ctx  = trail3.getContext("2d");
+    t4ctx  = trail4.getContext("2d");
+    t5ctx  = trail5.getContext("2d");
+
+    var x;
+    var y;
+
+    loaded       = true;
+}
+
+var test = 100;
+var iter = 0;
+setInterval(function(){
+     if(loaded == true){
+
+           videocontext.drawImage(livefeed,0,0,900,900);
+           videocontext.save();
+           videocontext.beginPath();
+           videocontext.arc(x, y, 50, 0, Math.PI * 2, true);
+           videocontext.clip();
+           videocontext.drawImage(video1,0,0,900,900);
+           videocontext.restore();
+
+           trail(t0ctx, 0.9, mousearray[0][0], mousearray[0][1], 100);
+           trail(t1ctx, 0.8, mousearray[1][0], mousearray[1][1], 90);
+           trail(t2ctx, 0.7, mousearray[2][0], mousearray[2][1], 80);
+           trail(t3ctx, 0.6, mousearray[3][0], mousearray[3][1], 70);
+           trail(t4ctx, 0.5, mousearray[4][0], mousearray[4][1], 60);
+           trail(t5ctx, 0.4, mousearray[5][0], mousearray[5][1], 50);
+
+     }else{console.log("canvas hasn't loaded yet.");} }, 100);
+
+    function trail(context, alpha, mousex, mousey, radius){
+        context.globalAlpha = alpha;
+        context.clearRect(0, 0, 1000, 1000);
+        context.save();
+        context.beginPath();
+        context.arc(mousex, mousey, radius, 0, Math.PI * 2, true);
+        context.clip();
+        context.drawImage(video1,0,0,900,900);
+        context.restore();
+    }
+    function getMousePosition(event) {
+        if (loaded){
+            var area = trail0.getBoundingClientRect();
+
+             x = event.clientX;
+             y = event.clientY;
+             tempArray = []
+            //  console.log(x,y);
+             updateMouseArray();
+        }
+    }
+    var mouseCounter = 0;
+    function updateMouseArray(){
+        mouseCounter += 1;
+        if (mouseCounter % 10 == 0){
+            console.log("update mouse array");
+            mousearray[5] = mousearray[4];
+            mousearray[4] = mousearray[3];
+            mousearray[3] = mousearray[2];
+            mousearray[2] = mousearray[1];
+            mousearray[1] = mousearray[0];
+            mousearray[0] = [x, y];
+       }
+        // console.log(mousearray[0],mousearray[1],mousearray[2],mousearray[3],mousearray[4]);
+    }
+</script>
+</body>
+</html>
