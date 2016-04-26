@@ -2,8 +2,9 @@
 #trail0 {
     /*z-index: 5;*/
     position: absolute;
-        left: 0px;
-      right : 0px;
+    margin-top: 2px;
+        left: 13px;
+      right : 0x;
       width : 900;
       height: 900;
       z-index : 1;
@@ -14,61 +15,66 @@
 #trail1 {
     /*z-index: 5;*/
     position: absolute;
+    margin-top: 2px;
     /*display : none;*/
-        left: 0px;
+        left: 13px;
       right : 0px;
       width : 900;
       height: 900;
       z-index : 1;
-      /*margin-left : 20em;*/
+      /*margin-left : 80em;*/
 }
 #trail2 {
     /*z-index: 5;*/
     position: absolute;
+    margin-top: 2px;
     /*display : none;*/
-        left: 0px;
+        left: 13px;
       right : 0px;
       width : 900;
       height: 900;
       z-index : 1;
 
-      /*margin-left : 20em;*/
+      /*margin-left : 80em;*/
 }
 #trail3 {
     /*z-index: 5;*/
     position: absolute;
+    margin-top: 2px;
     /*display : none;*/
-        left: 0px;
+        left: 13px;
       right : 0px;
       width : 900;
       height: 900;
       z-index : 1;
 
-      /*margin-left : 20em;*/
+      /*margin-left : 80em;*/
 }
 #trail4 {
     /*z-index: 5;*/
     position: absolute;
+    margin-top: 2px;
     /*display : none;*/
-        left: 0px;
+        left: 13px;
       right : 0px;
       width : 900;
       height: 900;
       z-index : 1;
 
-      /*margin-left : 20em;*/
+      /*margin-left : 80em;*/
 }
 #trail5 {
     /*z-index: 5;*/
     position: absolute;
+    margin-top: 2px;
     /*display : none;*/
-        left: 0px;
+        left: 13px;
       right : 0px;
       width : 900;
       height: 900;
       z-index : 1;
 
-      /*margin-left : 20em;*/
+      /*margin-left : 80em;*/
 }
 
 
