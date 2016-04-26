@@ -1,31 +1,45 @@
 <html>
 <head>
-    <script>
-var loaded = false;
-var imgurl0, canvas0, context0;
-   function init(){
-       imgurl0 = document.getElementById("imgurl0");
-       console.log("got imgurl0");
-       canvas0 = document.getElementById("videocanvas1");
-       console.log("got canvas", canvas0);
-       context0 = canvas0.getContext("2d");
-       canvas0.width = 900;
-       canvas0.height = 900;
-       loaded = true;
-       console.log(loaded);
-     }
+<link rel="stylesheet" href="stylesheetasdf.css" type="text/css">
+<canvas id="tv_canvas"; width="900"; height="225"; style="marin-left:10em"></canvas>
+<canvas id="title_canvas"; width="900"; height="225"; style="marin-left:10em"></canvas>
 
-  setInterval(function(){
-    if(loaded == true){
-      context0.drawImage(imgurl0, 0, 0, 900, 900);
-}else{console.log("canvas hasn't loaded yet.");} }, 10);
+<img id="video0" src="http://71.168.184.230/mjpg/video.mjpg",     style="display:none">
+<img id="video1" src="http://166.165.58.225/mjpg/video.mjpg?COUNTER",     style="display:none">
+<img id="video2" src="http://24.172.104.226:81/mjpg/video.mjpg?COUNTER",     style="display:none">
+<img id="video3" src="http://96.56.186.228/mjpg/video.mjpg?COUNTER",     style="display:none">
+
+<a href="page1.html">next</a>
+    <script>
+    var loaded = false;
+    function init(){
+        canvas = document.getElementById("tv_canvas");
+        tv_ctx = canvas.getContext("2d");
+
+        vid0   = document.getElementById("video0");
+        vid1   = document.getElementById("video1");
+        vid2   = document.getElementById("video2");
+        vid3   = document.getElementById("video3");
+        loaded = true;
+   }
+   setInterval(function(){
+        if(loaded == true){
+            tv_ctx.drawImage(vid0, 0,   0,   225, 225, 0,    0, 225, 225);
+            tv_ctx.drawImage(vid1, 0,   0,   225, 225, 225,  0, 225, 225);
+            tv_ctx.drawImage(vid2, 0,   0,   225, 225, 450,  0, 225, 225);
+            tv_ctx.drawImage(vid3, 0,   0,   225, 225, 675,  0, 225, 225);
+
+            tv_ctx.font      = "120px Courier";
+            tv_ctx.fillStyle = "black";
+            tv_ctx.fillText(" s h i f t ", 10, 150);
+        }else{console.log("canvas hasn't loaded yet.");} }, 100);
+
 
 
     </script>
 </head>
 <body onload="init()">
-  <canvas id="videocanvas1" ></canvas>
-  <img id="imgurl0" src="http://208.125.131.249/image", style="display:none">
+
 
 </body>
 </html>
