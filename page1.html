@@ -1,0 +1,109 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="stylesheetasdf.css" type="text/css">
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
+<!-- <script src="jquery.getimagedata.min.js"></script> -->
+</head>
+<body onload="init()"
+      onmousemove="getMousePosition(event)"
+      onmousedown="firstPoint(x, y)"
+      onmouseup="drawOnBuffer1(x,y)"
+      onclick  ="opacity()">
+     <!-- menu divs -->
+
+    <!-- canvases -->
+<canvas id="page1_canv0"; class="onTheRedactionCanvas"; width="550"; height="550"></canvas>
+<canvas id="page1_canv1"; class="onTheRedactionCanvas"; width="550"; height="550"></canvas>
+<canvas id="page1_canv2"; class="onTheRedactionCanvas"; width="550"; height="550"></canvas>
+<canvas id="page1_canv3"; class="onTheRedactionCanvas"; width="550"; height="550"></canvas>
+<br>
+<div id="first_quote_div">
+    <a href="surveillance4.html" id="first_quote">next</a>
+</div>
+<!-- <img id="imgurl0" src="http://208.125.131.249/image",                 style="display:none"> -->
+<!-- <img id="imgurl5" src="http://208.84.193.88:8888/mjpg/video.mjpg",    > -->
+<!-- <img id="imgurl4" src="http://208.84.193.88:8888/mjpg/video.mjpg",    > -->
+<img id="imgurl3" src="http://64.118.101.86:9001/mjpg/video.mjpg",     style="display:none">
+<img id="imgurl2" src="http://79.141.146.217/axis-cgi/mjpg/video.cgi", style="display:none">
+<img id="imgurl1" src="http://64.119.5.198:8080/image",                style="display:none">
+<img id="imgurl0" src="http://74.164.25.34/mjpg/video.mjpg",           style="display:none">
+
+
+<script>
+    var loaded = false;
+    var imgurl0, canvas0, context0;
+    var canvArray       = []; //red, green, blue, purple, yellow, black
+    var cntxtArray      = [];
+    var clipArray       = [];
+    var clipCntxtArray  = [];
+    var interArray      = [];
+    var interCntxtArray = [];
+    var imgurlArr       = [];
+    var opacArray       = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
+    var numberOfCanvases= 4;
+
+       function init(){
+         for (var i = 0; i < numberOfCanvases; i++){
+             imgurlArr[i]  = document.getElementById("imgurl" + i);
+             canvArray[i]  = document.getElementById("page1_canv" + i);
+             cntxtArray[i]     = canvArray[i].getContext("2d");
+
+             console.log("done with ", i);
+         }
+         loaded = true;
+      }
+
+      setInterval(function(){
+         if(loaded == true){
+          // console.log("reloading picture", opacArray);
+            for (var i = 0; i < numberOfCanvases; i++){
+                cntxtArray[i].globalAlpha = opacArray[i];
+                cntxtArray[i].clearRect(0, 0, 1000, 1000);
+                cntxtArray[i].drawImage(imgurlArr[i], 0, 0, 900, 900);
+            }
+        }else{console.log("canvas hasn't loaded yet.");} }, 100);
+
+
+
+
+    function getMousePosition(event) {
+        if (loaded){
+            var area = canvArray[0].getBoundingClientRect();
+             x = event.clientX - area.left;
+             y = event.clientY - area.top;
+             newx= x/area.right;
+             newy = y/area.bottom;
+             var first = ((1-newx)+(1-newy))/2.0;
+             var second= ((newx)+(1-newy))/2.0;
+             var third = (newx + newy)/2.0;
+             var fourth= ((1-newx)+newy)/2.0;
+            //  console.log( "first = ", first, "second = ", second, "third = ", third, "fourth = ", fourth);
+             opacArray = [first, second, third, fourth];
+        }
+    }
+
+    function firstPoint(x, y) {
+        upperLeftX = x;
+        upperLeftY = y;
+    }
+
+
+    function drawOnBuffer1(x, y) {
+        console.log("draw on buffer");
+        finalX = x;
+        finalY = y;
+
+        if (upperLeftX - finalX == 0 && upperLeftY - finalY == 0) {
+            //console.log("it happened");
+            finalX += 1;
+            finalY +=1;
+            }
+        //
+    }
+
+</script>
+
+</body>
+</body>
+</html>
