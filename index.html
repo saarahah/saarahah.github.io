@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script>
+var loaded = false;
+var imgurl0, canvas0, context0;
+   function init(){
+       imgurl0 = document.getElementById("imgurl0");
+       console.log("got imgurl0");
+       canvas0 = document.getElementById("videocanvas1");
+       console.log("got canvas", canvas0);
+       context0 = canvas0.getContext("2d");
+       canvas0.width = 900;
+       canvas0.height = 900;
+       loaded = true;
+       console.log(loaded);
+     }
+
+  setInterval(function(){
+    if(loaded == true){
+      context0.drawImage(imgurl0, 0, 0, 900, 900);
+}else{console.log("canvas hasn't loaded yet.");} }, 10);
+
+
+    </script>
+</head>
+<body onload="init()">
+  <canvas id="videocanvas1" ></canvas>
+  <img id="imgurl0" src="http://208.125.131.249/image", style="display:none">
+
+</body>
+</html>
