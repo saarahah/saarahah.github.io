@@ -1,20 +1,20 @@
 <html>
 <head>
 <title></title>
-<!-- <link rel="stylesheet" href="stylesheetasdf.css" type="text/css"> -->
+
 </head>
 <body onload="init()" onmousemove="getMousePosition(event)">
 <link rel="stylesheet" href="stylesheetasdf.css" type="text/css">
-<canvas id="page2_canv0"    width="900"; height="900"; style="postion:absolute; left=0px; right=0px"></canvas>
+<canvas id="page2_canv0"    width="600"; height="600"; style="postion:absolute; left=0px; right=0px"></canvas>
 
-<canvas id="trail0";    width="900"; height="900"></canvas>
-<canvas id="trail1";    width="900"; height="900"></canvas>
-<canvas id="trail2";    width="900"; height="900"></canvas>
-<canvas id="trail3";    width="900"; height="900"></canvas>
-<canvas id="trail4";    width="900"; height="900"></canvas>
-<canvas id="trail5";    width="900"; height="900"></canvas>
-<br>
-<div id="second_quote_div">
+<canvas id="trail0";    width="600"; height="600"></canvas>
+<canvas id="trail1";    width="600"; height="600"></canvas>
+<canvas id="trail2";    width="600"; height="600"></canvas>
+<canvas id="trail3";    width="600"; height="600"></canvas>
+<canvas id="trail4";    width="600"; height="600"></canvas>
+<canvas id="trail5";    width="600"; height="600"></canvas>
+<br><br>
+<div id="second_quote_div"; style="text-align:center";>
     <a href="surveillance2.html" id="second_quote">Next</a>
 </div>
 <img   id="imgurl2" src="http://207.30.63.82/mjpg/video.mjpg" style="display: none";   >
@@ -32,7 +32,8 @@ var video1;
 var videocanvas;
 var videocontext;
 
-var mousearray=[[0,0],[0,0],[0,0],[3,3],[2,2], [0,0]];
+// var mousearray=[[0,0],[0,0],[0,0],[3,3],[2,2], [0,0]];
+var mousearray=[];
 
 function init(){
     livefeed     = document.getElementById("imgurl2");
@@ -49,6 +50,14 @@ function init(){
     trail3 = document.getElementById("trail3");
     trail4 = document.getElementById("trail4");
     trail5 = document.getElementById("trail5");
+
+    trail0.style.marginLeft=350;
+    trail1.style.marginLeft=350;
+    trail2.style.marginLeft=350;
+    trail3.style.marginLeft=350;
+    trail4.style.marginLeft=350;
+    trail5.style.marginLeft=350;
+    livecanvas.style.marginLeft=350;
 
     t0ctx  = trail0.getContext("2d");
     t1ctx  = trail1.getContext("2d");
@@ -68,12 +77,12 @@ var iter = 0;
 setInterval(function(){
      if(loaded == true){
 
-           videocontext.drawImage(livefeed,0,0,900,900);
+           videocontext.drawImage(livefeed,0,0,600,600);
            videocontext.save();
            videocontext.beginPath();
-           videocontext.arc(x, y, 50, 0, Math.PI * 2, true);
+           videocontext.arc(x-350, y, 50, 0, Math.PI * 2, true);
            videocontext.clip();
-           videocontext.drawImage(video1,0,0,900,900);
+           videocontext.drawImage(video1,0,0,600,600);
            videocontext.restore();
 
            trail(t0ctx, 0.9, mousearray[0][0], mousearray[0][1], 100);
@@ -87,12 +96,12 @@ setInterval(function(){
 
     function trail(context, alpha, mousex, mousey, radius){
         context.globalAlpha = alpha;
-        context.clearRect(0, 0, 900, 900);
+        context.clearRect(0, 0, 600, 600);
         context.save();
         context.beginPath();
-        context.arc(mousex, mousey, radius, 0, Math.PI * 2, true);
+        context.arc(mousex-350, mousey, radius, 0, Math.PI * 2, true);
         context.clip();
-        context.drawImage(video1,0,0,900,900);
+        context.drawImage(video1,0,0,600,600);
         context.restore();
     }
     function getMousePosition(event) {
