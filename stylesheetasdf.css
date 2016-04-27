@@ -5,8 +5,8 @@
     margin-top: 2px;
         left: 13px;
       right : 0x;
-      width : 900;
-      height: 900;
+      width : 600;
+      height: 600;
       z-index : 1;
 
       /*margin-left : 20em;*/
@@ -19,8 +19,8 @@
     /*display : none;*/
         left: 13px;
       right : 0px;
-      width : 900;
-      height: 900;
+      width : 600;
+      height: 600;
       z-index : 1;
       /*margin-left : 80em;*/
 }
@@ -31,8 +31,8 @@
     /*display : none;*/
         left: 13px;
       right : 0px;
-      width : 900;
-      height: 900;
+      width : 600;
+      height: 600;
       z-index : 1;
 
       /*margin-left : 80em;*/
@@ -44,8 +44,8 @@
     /*display : none;*/
         left: 13px;
       right : 0px;
-      width : 900;
-      height: 900;
+      width : 600;
+      height: 600;
       z-index : 1;
 
       /*margin-left : 80em;*/
@@ -57,8 +57,8 @@
     /*display : none;*/
         left: 13px;
       right : 0px;
-      width : 900;
-      height: 900;
+      width : 600;
+      height: 600;
       z-index : 1;
 
       /*margin-left : 80em;*/
@@ -70,8 +70,8 @@
     /*display : none;*/
         left: 13px;
       right : 0px;
-      width : 900;
-      height: 900;
+      width : 600;
+      height: 600;
       z-index : 1;
 
       /*margin-left : 80em;*/
@@ -152,54 +152,89 @@
 
 .intersectionCanvas {
     visibility: collapse;
+    /*width: 600;*/
+    /*height: 600;*/
 }
 .clippingPlane {
     visibility: collapse;
+    /*width: 600;*/
+    /*height: 600;*/
 }
-#tv_canvas{
-   margin-left : 10em;
-   margin-top  : 10em;
-}
+
 #first_quote{
     margin-top : 30em;
 }
 #first_quote_div{
-    margin-top : 35em;
+    margin-top : 38em;
 
 }
 #second_quote_div {
-  margin-top : 55em;
+  margin-top : 36em;
   z-index = 10;
 
 }
 #third_quote_div{
-     margin-top : 60em;
+     margin-top : 36em;
 
 }
 .onTheRedactionCanvas{
    position : absolute;
+   /*width: 600;*/
+   /*height: 600;*/
 }
 #page3_canv0{
    postion : absolute;
    z-index : 6;
+   cursor:crosshair;
+   /*width: 600;*/
+   /*height: 600;*/
 }
 #page3_canv1{
    postion : absolute;
    z-index : 5;
+   cursor:crosshair;
+   /*width: 600;*/
+   /*height: 600;*/
 }
 #page3_canv2{
    postion : absolute;
    z-index : 4;
+   cursor:crosshair;
+   /*width: 600;*/
+   /*height: 600;*/
 }
 #page3_canv3{
    postion : absolute;
    z-index : 3;
+   cursor:crosshair;
+   /*width: 600;*/
+   /*height: 600;*/
 }
 #page3_canv4{
    postion : absolute;
    z-index : 2;
+   cursor:crosshair;
+   /*width: 600;*/
+   /*height: 600;*/
 }
 #page3_canv5{
    postion : absolute;
    z-index : 1;
+   cursor:crosshair;
+   /*width: 600;*/
+   /*height: 600;*/
+}
+#tv_canvas{
+  z-index: -1;
+  position:absolute;
+   margin-left : 10em;
+   margin-top  : 10em;
+}
+
+
+#tv_static {
+    z-index: 1;
+    postion : absolute;
+    margin-left : 10em;
+    margin-top  : 10em;
 }
