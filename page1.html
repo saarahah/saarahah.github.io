@@ -2,8 +2,6 @@
 <head>
 <title></title>
 <link rel="stylesheet" href="stylesheetasdf.css" type="text/css">
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-<!-- <script src="jquery.getimagedata.min.js"></script> -->
 </head>
 <body onload="init()"
       onmousemove="getMousePosition(event)"
@@ -13,13 +11,13 @@
      <!-- menu divs -->
 
     <!-- canvases -->
-<canvas id="page1_canv0"; class="onTheRedactionCanvas"; width="550"; height="550"></canvas>
-<canvas id="page1_canv1"; class="onTheRedactionCanvas"; width="550"; height="550"></canvas>
-<canvas id="page1_canv2"; class="onTheRedactionCanvas"; width="550"; height="550"></canvas>
-<canvas id="page1_canv3"; class="onTheRedactionCanvas"; width="550"; height="550"></canvas>
+<canvas id="page1_canv0"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page1_canv1"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page1_canv2"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page1_canv3"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
 <br>
-<div id="first_quote_div">
-    <a href="surveillance4.html" id="first_quote">next</a>
+<div id="first_quote_div"; style="text-align:center";>
+    <a href="surveillance4.html">Next</a>
 </div>
 <!-- <img id="imgurl0" src="http://208.125.131.249/image",                 style="display:none"> -->
 <!-- <img id="imgurl5" src="http://208.84.193.88:8888/mjpg/video.mjpg",    > -->
@@ -49,6 +47,9 @@
              canvArray[i]  = document.getElementById("page1_canv" + i);
              cntxtArray[i]     = canvArray[i].getContext("2d");
 
+             canvArray[i].style.marginLeft=350;
+
+
              console.log("done with ", i);
          }
          loaded = true;
@@ -60,7 +61,7 @@
             for (var i = 0; i < numberOfCanvases; i++){
                 cntxtArray[i].globalAlpha = opacArray[i];
                 cntxtArray[i].clearRect(0, 0, 1000, 1000);
-                cntxtArray[i].drawImage(imgurlArr[i], 0, 0, 900, 900);
+                cntxtArray[i].drawImage(imgurlArr[i], 0, 0, 700, 700);
             }
         }else{console.log("canvas hasn't loaded yet.");} }, 100);
 
