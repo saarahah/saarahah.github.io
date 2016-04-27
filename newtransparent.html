@@ -1,0 +1,110 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="stylesheetasdf.css" type="text/css">
+</head>
+<body onload="init()"
+      onmousemove="getMousePosition(event)"
+      onmousedown="firstPoint(x, y)"
+      onmouseup="drawOnBuffer1(x,y)"
+      onclick  ="opacity()">
+     <!-- menu divs -->
+
+    <!-- canvases -->
+<canvas id="page1_canv0"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page1_canv1"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page1_canv2"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page1_canv3"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<br>
+<div id="first_quote_div"; style="text-align:center";>
+    <a href="index.html">Next</a>
+</div>
+<!-- <img id="imgurl0" src="http://208.125.131.249/image",                 style="display:none"> -->
+<!-- <img id="imgurl5" src="http://208.84.193.88:8888/mjpg/video.mjpg",    > -->
+<!-- <img id="imgurl4" src="http://208.84.193.88:8888/mjpg/video.mjpg",    > -->
+<img id="imgurl3" src="http://69.51.81.14:8090/?action=stream",     style="display:none">
+<img id="imgurl2" src="http://99.41.185.112:8082/?action=stream", style="display:none">
+<img id="imgurl1" src="http://66.91.255.222/?action=stream",                style="display:none">
+<img id="imgurl0" src="http://107.132.36.110:8080/?action=stream",           style="display:none">
+
+
+<script>
+    var loaded = false;
+    var imgurl0, canvas0, context0;
+    var canvArray       = []; //red, green, blue, purple, yellow, black
+    var cntxtArray      = [];
+    var clipArray       = [];
+    var clipCntxtArray  = [];
+    var interArray      = [];
+    var interCntxtArray = [];
+    var imgurlArr       = [];
+    var opacArray       = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
+    var numberOfCanvases= 4;
+
+       function init(){
+         for (var i = 0; i < numberOfCanvases; i++){
+             imgurlArr[i]  = document.getElementById("imgurl" + i);
+             canvArray[i]  = document.getElementById("page1_canv" + i);
+             cntxtArray[i]     = canvArray[i].getContext("2d");
+
+             canvArray[i].style.marginLeft=350;
+
+
+             console.log("done with ", i);
+         }
+         loaded = true;
+      }
+
+      setInterval(function(){
+         if(loaded == true){
+          // console.log("reloading picture", opacArray);
+            for (var i = 0; i < numberOfCanvases; i++){
+                cntxtArray[i].globalAlpha = opacArray[i];
+                cntxtArray[i].clearRect(0, 0, 1000, 1000);
+                cntxtArray[i].drawImage(imgurlArr[i], 0, 0, 700, 700);
+            }
+        }else{console.log("canvas hasn't loaded yet.");} }, 100);
+
+
+
+
+    function getMousePosition(event) {
+        if (loaded){
+            var area = canvArray[0].getBoundingClientRect();
+             x = event.clientX - area.left;
+             y = event.clientY - area.top;
+             newx= x/area.right;
+             newy = y/area.bottom;
+             var first = ((1-newx)+(1-newy))/2.0;
+             var second= ((newx)+(1-newy))/2.0;
+             var third = (newx + newy)/2.0;
+             var fourth= ((1-newx)+newy)/2.0;
+            //  console.log( "first = ", first, "second = ", second, "third = ", third, "fourth = ", fourth);
+             opacArray = [first, second, third, fourth];
+        }
+    }
+
+    function firstPoint(x, y) {
+        upperLeftX = x;
+        upperLeftY = y;
+    }
+
+
+    function drawOnBuffer1(x, y) {
+        console.log("draw on buffer");
+        finalX = x;
+        finalY = y;
+
+        if (upperLeftX - finalX == 0 && upperLeftY - finalY == 0) {
+            //console.log("it happened");
+            finalX += 1;
+            finalY +=1;
+            }
+        //
+    }
+
+</script>
+
+</body>
+</body>
+</html>
