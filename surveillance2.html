@@ -10,40 +10,39 @@
      <!-- menu divs -->
 
     <!-- canvases -->
-<canvas id="page3_canv0"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
-<canvas id="page3_canv1"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
-<canvas id="page3_canv2"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
-<canvas id="page3_canv3"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
-<canvas id="page3_canv4"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
-<canvas id="page3_canv5"; class="onTheRedactionCanvas"; width="900"; height="900"></canvas>
+<canvas id="page3_canv0"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page3_canv1"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page3_canv2"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page3_canv3"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page3_canv4"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
+<canvas id="page3_canv5"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
 <br><br>
-<div id="third_quote_div">
+<div id="third_quote_div"; style="text-align:center";>
 
     <a href="index.html" id="first_quote">Next</a>
 </div>
 
 
-<canvas id="clip0"; class="clippingPlane"; width="900"; height="900" style="display:none" ></canvas>
-<canvas id="clip1"; class="clippingPlane"; width="900"; height="900" style="display:none" ></canvas>
-<canvas id="clip2"; class="clippingPlane"; width="900"; height="900" style="display:none"></canvas>
-<canvas id="clip3"; class="clippingPlane"; width="900"; height="900" style="display:none"></canvas>
-<canvas id="clip4"; class="clippingPlane"; width="900"; height="900" style="display:none"></canvas>
-<canvas id="clip5"; class="clippingPlane"; width="900"; height="900" style="display:none"></canvas>
+<canvas id="clip0"; class="clippingPlane"; width="600"; height="600" style="display:none" ></canvas>
+<canvas id="clip1"; class="clippingPlane"; width="600"; height="600" style="display:none" ></canvas>
+<canvas id="clip2"; class="clippingPlane"; width="600"; height="600" style="display:none"></canvas>
+<canvas id="clip3"; class="clippingPlane"; width="600"; height="600" style="display:none"></canvas>
+<canvas id="clip4"; class="clippingPlane"; width="600"; height="600" style="display:none"></canvas>
+<canvas id="clip5"; class="clippingPlane"; width="600"; height="600" style="display:none"></canvas>
 
-<canvas id="inter0"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
-<canvas id="inter1"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
-<canvas id="inter2"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
-<canvas id="inter3"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
-<canvas id="inter4"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
-<canvas id="inter5"; class="intersectionCanvas"; width="900"; height="900"; style="display:none";></canvas>
+<canvas id="inter0"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
+<canvas id="inter1"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
+<canvas id="inter2"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
+<canvas id="inter3"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
+<canvas id="inter4"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
+<canvas id="inter5"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
 
-<!-- <img id="imgurl0" src="http://208.125.131.249/image",                 style="display:none"> -->
-<img id="imgurl0" src="http://208.84.193.88:8888/mjpg/video.mjpg";    style="display:none">
-<img id="imgurl1" src="http://108.244.144.225/mjpg/video.mjpg?COUNTER";    style="display:none">
-<img id="imgurl2" src="http://64.118.101.86:9001/mjpg/video.mjpg";    style="display:none">
-<img id="imgurl3" src="http://79.141.146.217/axis-cgi/mjpg/video.cgi"; style="display:none">
-<img id="imgurl4" src="http://64.119.5.198:8080/image";               style="display:none">
-<img id="imgurl5" src="http://74.164.25.34/mjpg/video.mjpg";          style="display:none">
+<img id="imgurl0" src="http://195.208.34.244:50000/SnapshotJPEG?Resolution=640x480";    style="display:none">
+<img id="imgurl1" src="http://202.123.156.242/oneshotimage1?1461715977";    style="display:none">
+<img id="imgurl2" src="http://217.79.9.145/mjpg/video.mjpg";    style="display:none">
+<img id="imgurl3" src="http://217.79.9.142/mjpg/video.mjpg"; style="display:none">
+<img id="imgurl4" src="http://217.79.9.144/mjpg/video.mjpg";               style="display:none">
+<img id="imgurl5" src="http://217.79.9.139/mjpg/video.mjpg";          style="display:none">
 
 
 <script>
@@ -70,10 +69,15 @@
              interArray[i] = document.getElementById("inter" + i);
              interCntxtArray[i] = interArray[i].getContext("2d");
              console.log("done with ", i);
+
+             canvArray[i].style.marginLeft=350;
+             clipArray[i].style.marginLeft=350;
+             interArray[i].style.marginLeft=350;
+
          }
          loaded = true;
          for (var i = 0; i < 6; i++){
-             cntxtArray[i].drawImage(imgurlArr[i], 0, 0, 900, 900);
+             cntxtArray[i].drawImage(imgurlArr[i], 0, 0, 600, 600);
          }
       }
 
