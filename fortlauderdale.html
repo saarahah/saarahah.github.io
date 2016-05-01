@@ -15,7 +15,7 @@
 <canvas id="trail5";    width="600"; height="600"></canvas>
 <br><br>
 <div id="second_quote_div"; style="text-align:center";>
-    <a href="newtransparent.html" id="second_quote"><font face="courier">“Off-camera lives are unverifiable.”</font></a>
+    <a href="newtransparent.html" id="second_quote"><font face="courier">Off-camera lives are unverifiable.</font></a>
 </div>
 <img   id="imgurl2" src="http://173.162.100.238:81/mjpg/video.mjpg" style="display: none";   >
 <video id="video1" loop autoplay style="display:none">
@@ -51,13 +51,13 @@ function init(){
     trail4 = document.getElementById("trail4");
     trail5 = document.getElementById("trail5");
 
-    trail0.style.marginLeft=350;
-    trail1.style.marginLeft=350;
-    trail2.style.marginLeft=350;
-    trail3.style.marginLeft=350;
-    trail4.style.marginLeft=350;
-    trail5.style.marginLeft=350;
-    livecanvas.style.marginLeft=350;
+    trail0.style.marginLeft=50;
+    trail1.style.marginLeft=50;
+    trail2.style.marginLeft=50;
+    trail3.style.marginLeft=50;
+    trail4.style.marginLeft=50;
+    trail5.style.marginLeft=50;
+    livecanvas.style.marginLeft=50;
 
     t0ctx  = trail0.getContext("2d");
     t1ctx  = trail1.getContext("2d");
@@ -80,7 +80,7 @@ setInterval(function(){
            videocontext.drawImage(livefeed,0,0,600,600);
            videocontext.save();
            videocontext.beginPath();
-           videocontext.rect(x-440, y-100, 200,200);
+           videocontext.rect(x-140, y-30, 200,200);
            videocontext.clip();
            videocontext.drawImage(video1,0,0,600,600);
            videocontext.restore();
@@ -99,7 +99,7 @@ setInterval(function(){
         context.clearRect(0, 0, 600, 600);
         context.save();
         context.beginPath();
-        context.rect(mousex-440, mousey-100, 200, 200);
+        context.rect(mousex-140, mousey-30, 200, 200);
         context.clip();
         context.drawImage(video1,0,0,600,600);
         context.restore();
