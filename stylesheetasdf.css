@@ -151,13 +151,13 @@
     z-index: 5;
 }
 
-#indexText {
+/*#indexText {
     margin-left: 30em;
     margin-top: 30em;
     position:absolute;
     text-decoration: none;
     font-family:monospace;
-}
+}*/
 
 .intersectionCanvas {
     visibility: collapse;
@@ -178,8 +178,14 @@
     margin-top : 70px;
     margin-left: 800;
     width: 300px
-
 }
+#index_div{
+  position: absolute;
+  width: 500px;
+  margin-left: 32%;
+  top: 55%;
+}
+
 #second_quote_div {
   position: absolute;
     margin-top : 70px;
@@ -244,14 +250,20 @@
 #tv_canvas{
   z-index: -1;
   position:absolute;
-   margin-left : 10em;
-   margin-top  : 10em;
+  /*align-items: center;*/
+/*justify-content: center;*/
+   /*margin-left : auto;*/
+   /*margin-top  : auto;*/
+   transform: translate(25%, 50%);
 }
 
 
 #tv_static {
     z-index: 1;
     postion : absolute;
-    margin-left : 10em;
-    margin-top  : 10em;
+    /*align-items: center;*/
+/*justify-content: center;*/
+    /*margin-left : auto;*/
+    /*margin-top  : auto;*/
+    transform: translate(25%, 50%);
 }
