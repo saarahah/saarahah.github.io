@@ -51,13 +51,13 @@ function init(){
     trail4 = document.getElementById("trail4");
     trail5 = document.getElementById("trail5");
 
-    trail0.style.marginLeft=350;
-    trail1.style.marginLeft=350;
-    trail2.style.marginLeft=350;
-    trail3.style.marginLeft=350;
-    trail4.style.marginLeft=350;
-    trail5.style.marginLeft=350;
-    livecanvas.style.marginLeft=350;
+    trail0.style.marginLeft=50;
+    trail1.style.marginLeft=50;
+    trail2.style.marginLeft=50;
+    trail3.style.marginLeft=50;
+    trail4.style.marginLeft=50;
+    trail5.style.marginLeft=50;
+    livecanvas.style.marginLeft=50;
 
     t0ctx  = trail0.getContext("2d");
     t1ctx  = trail1.getContext("2d");
@@ -80,7 +80,7 @@ setInterval(function(){
            videocontext.drawImage(livefeed,0,0,600,600);
            videocontext.save();
            videocontext.beginPath();
-           videocontext.arc(x-350, y, 50, 0, Math.PI * 2, true);
+           videocontext.arc(x-100, y, 50, 0, Math.PI * 2, true);
            videocontext.clip();
            videocontext.drawImage(video1,0,0,600,600);
            videocontext.restore();
@@ -99,7 +99,7 @@ setInterval(function(){
         context.clearRect(0, 0, 600, 600);
         context.save();
         context.beginPath();
-        context.arc(mousex-350, mousey, radius, 0, Math.PI * 2, true);
+        context.arc(mousex-100, mousey, radius, 0, Math.PI * 2, true);
         context.clip();
         context.drawImage(video1,0,0,600,600);
         context.restore();
