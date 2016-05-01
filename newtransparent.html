@@ -1,3 +1,5 @@
+
+
 <html>
 <head>
 <title></title>
@@ -11,21 +13,21 @@
      <!-- menu divs -->
 
     <!-- canvases -->
-<canvas id="page1_canv0"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
-<canvas id="page1_canv1"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
-<canvas id="page1_canv2"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
-<canvas id="page1_canv3"; class="onTheRedactionCanvas"; width="600"; height="600"></canvas>
-<br>
+<canvas id="page1_canv0"; class="onTheRedactionCanvas"; height="600"; width="600"></canvas>
+<canvas id="page1_canv1"; class="onTheRedactionCanvas"; height="600"; width="600"></canvas>
+<canvas id="page1_canv2"; class="onTheRedactionCanvas"; height="600"; width="600"></canvas>
+<canvas id="page1_canv3"; class="onTheRedactionCanvas"; height="600"; width="600"></canvas>
+
 <div id="first_quote_div"; style="text-align:center";>
     <a href="nextcut.html"><font face="courier">“People will not die. Isn't this the creed of the new culture? People will be absorbed in streams of information."</font></a>
 </div>
 <!-- <img id="imgurl0" src="http://208.125.131.249/image",                 style="display:none"> -->
 <!-- <img id="imgurl5" src="http://208.84.193.88:8888/mjpg/video.mjpg",    > -->
 <!-- <img id="imgurl4" src="http://208.84.193.88:8888/mjpg/video.mjpg",    > -->
-<img id="imgurl3" src="http://69.51.81.14:8090/?action=stream",     style="display:none">
-<img id="imgurl2" src="http://99.41.185.112:8082/?action=stream", style="display:none">
-<img id="imgurl1" src="http://66.91.255.222/?action=stream",                style="display:none">
-<img id="imgurl0" src="http://107.132.36.110:8080/?action=stream",           style="display:none">
+<img id="imgurl3" src="http://98.189.158.57/mjpg/video.mjpg?COUNTER",     style="display:none">
+<img id="imgurl2" src="http://95.63.206.142/mjpg/video.mjpg?COUNTER", style="display:none">
+<img id="imgurl1" src="http://108.34.179.41/mjpg/video.mjpg?COUNTER",                style="display:none">
+<img id="imgurl0" src="http://201.229.94.197:1024/mjpg/video.mjpg?COUNTER",           style="display:none">
 
 
 <script>
@@ -62,7 +64,7 @@
             for (var i = 0; i < numberOfCanvases; i++){
                 cntxtArray[i].globalAlpha = opacArray[i];
                 cntxtArray[i].clearRect(0, 0, 1000, 1000);
-                cntxtArray[i].drawImage(imgurlArr[i], 0, 0, 700, 700);
+                cntxtArray[i].drawImage(imgurlArr[i], 10, 10, 700, 700);
             }
         }else{console.log("canvas hasn't loaded yet.");} }, 100);
 
