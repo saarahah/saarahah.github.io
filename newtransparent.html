@@ -1,11 +1,9 @@
-
-
 <html>
 <head>
 <title></title>
 <link rel="stylesheet" href="stylesheetasdf.css" type="text/css">
 </head>
-<body onload="init()"
+<body onload="init(), startTime()"
       onmousemove="getMousePosition(event)"
       onmousedown="firstPoint(x, y)"
       onmouseup="drawOnBuffer1(x,y)"
@@ -21,12 +19,14 @@
 <div id="first_quote_div"; style="text-align:center";>
     <a href="nextcut.html"><font face="courier">“People will not die. Isn't this the creed of the new culture? People will be absorbed in streams of information."</font></a>
 </div>
-<!-- <img id="imgurl0" src="http://208.125.131.249/image",                 style="display:none"> -->
-<!-- <img id="imgurl5" src="http://208.84.193.88:8888/mjpg/video.mjpg",    > -->
-<!-- <img id="imgurl4" src="http://208.84.193.88:8888/mjpg/video.mjpg",    > -->
+<img id="day0" src="http://95.227.148.233/mjpg/video.mjpg?COUNTER",            style="display:none">
+<img id="day1" src="http://90.83.123.226:85/mjpg/video.mjpg?COUNTER",    style="display:none">
+<img id="day2" src="http://81.149.146.68/mjpg/video.mjpg?COUNTER",    style="display:none">
+<img id="day3" src="http://84.54.189.245:91/mjpg/video.mjpg?COUNTER",   style="display:none" >
+
 <img id="imgurl3" src="http://98.189.158.57/mjpg/video.mjpg?COUNTER",     style="display:none">
 <img id="imgurl2" src="http://147.27.69.5/mjpg/video.mjpg?COUNTER", style="display:none">
-<img id="imgurl1" src="http://199.20.14.237/SnapshotJPEG?Resolution=640x480&amp;amp;Quality=Clarity&amp;amp;1462151384",                style="display:none">
+<img id="imgurl1" src="http://199.20.14.237/SnapshotJPEG?Resolution=640x480&amp;amp;Quality=Clarity&amp;amp;1462151384",  style="display:none">
 <img id="imgurl0" src="http://70.88.60.222:8001/mjpg/video.mjpg?COUNTER",           style="display:none">
 
 
@@ -40,23 +40,51 @@
     var interArray      = [];
     var interCntxtArray = [];
     var imgurlArr       = [];
+    var dayArr         = [];
     var opacArray       = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
     var numberOfCanvases= 4;
+    var fullTime;
+    // var i=0;
 
+    for (var i = 0; i < numberOfCanvases; i++){
+    imgurlArr[i]  = document.getElementById("imgurl" + i);
+    dayArr[i] =document.getElementById("day"+i);
+    canvArray[i]  = document.getElementById("page1_canv" + i);
+    cntxtArray[i]     = canvArray[i].getContext("2d");
+    canvArray[i].style.marginLeft=50;
+    canvArray[i].style.marginTop=2;
+  }
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    // document.getElementById('').innerHTML =
+    fullTime= h;
+    var t = setTimeout(startTime, 500);
+    // console.log(fullTime);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
        function init(){
-         for (var i = 0; i < numberOfCanvases; i++){
-             imgurlArr[i]  = document.getElementById("imgurl" + i);
-             canvArray[i]  = document.getElementById("page1_canv" + i);
-             cntxtArray[i]     = canvArray[i].getContext("2d");
-
-             canvArray[i].style.marginLeft=50;
-             canvArray[i].style.marginTop=2;
+         if (fullTime > 6 && fullTime < 19){
+           dayArr[i]; //use firstarray
+           console.log("day");
+         }else{ console.log("pannie"); // use secondarray
+          imgurlArr[i];
 
 
              console.log("done with ", i);
-         }
+
          loaded = true;
       }
+    }
+
 
       setInterval(function(){
          if(loaded == true){
@@ -64,7 +92,11 @@
             for (var i = 0; i < numberOfCanvases; i++){
                 cntxtArray[i].globalAlpha = opacArray[i];
                 cntxtArray[i].clearRect(0, 0, 1000, 1000);
+                if (fullTime > 6 && fullTime < 19){
                 cntxtArray[i].drawImage(imgurlArr[i], 10, 10, 700, 700);
+              }else{
+                cntxtArray[i].drawImage(dayArr[i], 10, 10, 700, 700);
+}
             }
         }else{console.log("canvas hasn't loaded yet.");} }, 100);
 
@@ -86,6 +118,8 @@
              opacArray = [first, second, third, fourth];
         }
     }
+
+
 
     function firstPoint(x, y) {
         upperLeftX = x;
