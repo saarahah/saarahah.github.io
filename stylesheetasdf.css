@@ -185,7 +185,12 @@
   margin-left: 32%;
   top: 60%;
 }
-
+#index_div2{
+  position: absolute;
+  width: 500px;
+  margin-left: 32%;
+  top: 85%;
+}
 #second_quote_div {
   position: absolute;
     margin-top : 70px;
