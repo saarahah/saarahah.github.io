@@ -72,7 +72,7 @@ function checkTime(i) {
     return i;
 }
        function init(){
-         if (fullTime > 6 && fullTime < 16){
+         if (fullTime < 6 && fullTime > 15){
            imgurlArr[i]; //use firstarray
            console.log("day");
          }else{ console.log("pannie"); // use secondarray
@@ -92,7 +92,7 @@ function checkTime(i) {
             for (var i = 0; i < numberOfCanvases; i++){
                 cntxtArray[i].globalAlpha = opacArray[i];
                 cntxtArray[i].clearRect(0, 0, 1000, 1000);
-                if (fullTime > 6 && fullTime < 15){
+                if (fullTime < 6 && fullTime > 15){
                 cntxtArray[i].drawImage(imgurlArr[i], 10, 10, 700, 700);
               }else{
                 cntxtArray[i].drawImage(dayArr[i], 10, 10, 700, 700);
