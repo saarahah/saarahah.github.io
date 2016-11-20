@@ -14,7 +14,8 @@
 <img id="video1" src="http://69.10.14.135/mjpg/video.mjpg?COUNTER",     style="display:none">
 <img id="video2" src="http://157.157.215.231:8080/mjpg/video.mjpg?COUNTER",     style="display:none">
 <img id="video3" src="http://107.193.60.72/mjpg/video.mjpg?COUNTER",     style="display:none">
-<img id="video4" src="http://88.247.208.23/oneshotimage1?1479633548",     style="display:none">
+<img id="video0alt" src="http://88.247.208.23/oneshotimage1?1479633548",     style="display:none">
+<img id="video1alt" src="http://216.139.5.26/axis-cgi/mjpg/video.cgi?camera=&amp;resolution=640x4808",     style="display:none">
 
 <!-- <a href="page1.html">next</a> -->
     <script>
@@ -41,20 +42,16 @@
    setInterval(function(){
         if(loaded == true){
             tv_ctx.drawImage(vid0, 170,   40,   225, 225, 0,    0, 225, 225);
-            setTimeout(function(){ 
-                tv_ctx.drawImage(vid4, 170,   40,   225, 225, 0,    0, 225, 225);; }, 1000);
-        }
-
-            tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
+             tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
             tv_ctx.drawImage(vid2, 0,   160,      225, 225, 450,  0, 225, 225);
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
-
+            
             tv_ctx.font      = "120px Courier";
             tv_ctx.strokeStyle="black";
             tv_ctx.fillStyle = "white";
             tv_ctx.fillText("  s h i f t ", 10, 150);
             tv_ctx.strokeText("  s h i f t ", 10, 150);
-        }else{console.log("canvas hasn't loaded yet.");} }, 100);
+        }else{tv_ctx.drawImage(vidoalt, 170, 40, 225, 225, 0,0,225,225);} }, 100);
 
 function updateMouse (){
   mouseontop=true;}
