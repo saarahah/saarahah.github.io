@@ -13,7 +13,8 @@
 <img id="video0" src="http://67.210.61.221/mjpg/video.mjpg?COUNTER",     style="display:none">
 <img id="video1" src="http://69.10.14.135/mjpg/video.mjpg?COUNTER",     style="display:none">
 <img id="video2" src="http://157.157.215.231:8080/mjpg/video.mjpg?COUNTER",     style="display:none">
-<img id="video3" src="http://107.193.60.72/mjpg/video.mjpg?COUNTER",     style="display:none">
+<img id="video3" src="http://107.193.60.72/mjpg/video.mjpg?COUNTER",     style="display:none">http://88.247.208.23/oneshotimage1?1479633548"     style="display:"none">
+<img id="video4" src="http://88.247.208.23/oneshotimage1?1479633548"     style="display:none">
 
 <!-- <a href="page1.html">next</a> -->
     <script>
@@ -32,12 +33,17 @@
         vid1   = document.getElementById("video1");
         vid2   = document.getElementById("video2");
         vid3   = document.getElementById("video3");
+        vid4   =document.getElementById("video4);
+        
         setup();
         loaded = true;
    }
    setInterval(function(){
         if(loaded == true){
             tv_ctx.drawImage(vid0, 170,   40,   225, 225, 0,    0, 225, 225);
+            setTimeout(function(){ 
+                tv_ctx.drawImage(vid4, 170,   40,   225, 225, 0,    0, 225, 225);; }, 1000);
+
             tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
             tv_ctx.drawImage(vid2, 0,   160,      225, 225, 450,  0, 225, 225);
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
