@@ -25,6 +25,15 @@
     var time = 0;
     var intervalId = 0;
     var mouseontop=false;
+        
+setTimeout("changeImage()", 30000);
+var x=0;
+
+function changeImage()
+{
+document.getElementById("video1").src=imagesvid[x]
+x+alt;
+}
 
     function init(){
         canvas = document.getElementById("tv_canvas");
@@ -43,13 +52,13 @@
    setInterval(function(){
         if(loaded == true){
             tv_ctx.drawImage(vid0, 170,   40,   225, 225, 0,    0, 225, 225);
-            Server.ScriptTimeout[=1]
+     
              tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
-            Server.ScriptTimeout[=1]
+
             tv_ctx.drawImage(vid2, 0,   160,      225, 225, 450,  0, 225, 225);
-            Server.ScriptTimeout[=1]
+
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
-            Server.ScriptTimeout[=1]
+
             
                    }else{tv_ctx.drawImage(vidoalt, 170, 40, 225, 225, 0,0,225,225);} }, 100);
             
