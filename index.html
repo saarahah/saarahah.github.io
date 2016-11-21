@@ -28,6 +28,14 @@
     var time = 0;
     var intervalId = 0;
     var mouseontop=false;
+    var timer;
+        
+function clearTimer() {
+        if (timer) {                
+            clearTimeout(timer);
+            timer = null;
+        }
+}
         
 //setTimeout("changeImage()", 10000);
 //        var x=0;
@@ -35,8 +43,11 @@
 
 //function changeImage(){
 //document.getElementById("video")[x][a]
-    x+=1;
+ //   x+=1;
 //}
+        
+   function Load(){
+       if(
 
     function init(){
         canvas = document.getElementById("tv_canvas");
@@ -65,16 +76,16 @@
        
         if(loaded == true){
             tv_ctx.drawImage(vid0, 170,   40,   225, 225, 0,    0, 225, 225);
-            setTimeout(1000);
+         
      
              tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
-            setTimeout(1000);
+   
 
             tv_ctx.drawImage(vid2, 0,   160,      225, 225, 450,  0, 225, 225);
-            setTimeout(1000);
+
 
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
-            setTimeout(1000);
+
       
           else if(loaded!=true){
            
