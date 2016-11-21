@@ -28,28 +28,9 @@
     var time = 0;
     var intervalId = 0;
     var mouseontop=false;
-   // var timer;
-        
-//function clearTimer() {
-//        if (timer) {                
-//            clearTimeout(timer);
-//            timer = null;
- //       }
-//}
-        
-//setTimeout("changeImage()", 10000);
-//        var x=0;
-//        var a= ("alt");
 
-//function changeImage(){
-//document.getElementById("video")[x][a]
- //   x+=1;
-//}
-        
-//   function Load(){
-//       if(
 
-    function init(){
+function init(){
         canvas = document.getElementById("tv_canvas");
         tv_ctx = canvas.getContext("2d");
 
@@ -67,28 +48,18 @@
         setup();
        loaded = true;
    
-        
-// videoIsLoaded(function(){
-//       if(document.getElementById("video"+x).buffered.length)
-// }
            
         
    setInterval(function(){
        
         if(loaded == true){
             tv_ctx.drawImage(vid0, 170,   40,   225, 225, 0,    0, 225, 225);
-         
-     
-             tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
-   
-
+            tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
             tv_ctx.drawImage(vid2, 0,   160,      225, 225, 450,  0, 225, 225);
-
-
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
 
       
-          onerror(function){
+          onerror(function)(){
            
             tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
             tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
@@ -139,7 +110,7 @@ function drawStatic(){
   setInterval(makeNoise,50);
 }
 
-    </script>
+</script>
 </head>
 <body onload="init()">
 
