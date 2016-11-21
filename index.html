@@ -35,7 +35,7 @@
 
 //function changeImage(){
 //document.getElementById("video")[x][a]
-//    x+1;
+    x+=1;
 //}
 
     function init(){
@@ -56,8 +56,14 @@
         setup();
         loaded = true;
    }
-   setInterval(function(){
-        if(loaded == true){
+        
+   videoIsLoaded(function(){
+       if(document.getElementById("video"+x).buffered.length){
+           
+        
+   //setInterval(function(){
+       
+        if(videoIsLoaded == true){
             tv_ctx.drawImage(vid0, 170,   40,   225, 225, 0,    0, 225, 225);
             setTimeout(1000);
      
@@ -70,7 +76,7 @@
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
             setTimeout(1000);
       
-          if(loaded!=true){
+          if(videoIsLoaded!=true){
            
             tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
             tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
