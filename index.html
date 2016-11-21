@@ -30,12 +30,12 @@
     var mouseontop=false;
     var timer;
         
-function clearTimer() {
-        if (timer) {                
-            clearTimeout(timer);
-            timer = null;
+//function clearTimer() {
+//        if (timer) {                
+//            clearTimeout(timer);
+//            timer = null;
         }
-}
+//}
         
 //setTimeout("changeImage()", 10000);
 //        var x=0;
@@ -46,8 +46,8 @@ function clearTimer() {
  //   x+=1;
 //}
         
-   function Load(){
-       if(
+//   function Load(){
+//       if(
 
     function init(){
         canvas = document.getElementById("tv_canvas");
@@ -65,16 +65,17 @@ function clearTimer() {
         vid1alt=document.getElementByID("video3alt");
         
         setup();
-        loaded = true;
+       // loaded = true;
    }
         
-  // videoIsLoaded(function(){
-    //   if(document.getElementById("video"+x).buffered.length){
+ videoIsLoaded(function(){
+       if(document.getElementById("video"+x).buffered.length)
+ }
            
         
    setInterval(function(){
        
-        if(loaded == true){
+        if(videoIsLoaded == true){
             tv_ctx.drawImage(vid0, 170,   40,   225, 225, 0,    0, 225, 225);
          
      
@@ -87,7 +88,7 @@ function clearTimer() {
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
 
       
-          else if(loaded!=true){
+          else if(videoIsLoaded!=true){
            
             tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
             tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
