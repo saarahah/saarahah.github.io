@@ -57,13 +57,13 @@
         loaded = true;
    }
         
-   videoIsLoaded(function(){
-       if(document.getElementById("video"+x).buffered.length){
+  // videoIsLoaded(function(){
+    //   if(document.getElementById("video"+x).buffered.length){
            
         
-   //setInterval(function(){
+   setInterval(function(){
        
-        if(videoIsLoaded == true){
+        if(loaded == true){
             tv_ctx.drawImage(vid0, 170,   40,   225, 225, 0,    0, 225, 225);
             setTimeout(1000);
      
@@ -76,7 +76,7 @@
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
             setTimeout(1000);
       
-          if(videoIsLoaded!=true){
+          else if(loaded!=true){
            
             tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
             tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
