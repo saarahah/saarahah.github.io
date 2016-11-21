@@ -27,14 +27,14 @@
     var intervalId = 0;
     var mouseontop=false;
         
-setTimeout("changeImage()", 10000);
-        var x=0;
-        var a= ("alt");
+//setTimeout("changeImage()", 10000);
+//        var x=0;
+//        var a= ("alt");
 
-function changeImage(){
-document.getElementById("video")[x][a]
-    x+1;
-}
+//function changeImage(){
+//document.getElementById("video")[x][a]
+//    x+1;
+//}
 
     function init(){
         canvas = document.getElementById("tv_canvas");
@@ -61,9 +61,10 @@ document.getElementById("video")[x][a]
             tv_ctx.drawImage(vid2, 0,   160,      225, 225, 450,  0, 225, 225);
 
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
-
-            
-                   }else{tv_ctx.drawImage(vidoalt, 170, 40, 225, 225, 0,0,225,225);} }, 100);
+      
+          if(loaded!=true){
+           
+            tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
             
             tv_ctx.font      = "120px Courier";
             tv_ctx.strokeStyle="black";
