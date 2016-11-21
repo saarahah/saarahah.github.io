@@ -79,7 +79,7 @@ function init(){
 
 function updateMouse (){
   mouseontop=true;
-}
+
       var makeNoise = function() {
         // staticcanvas.style.display="inline";
             if(mouseontop){
@@ -98,11 +98,12 @@ function updateMouse (){
           staticcontext.putImageData(imgd, 0, 0);
           time = (time + 1) % staticcanvas.height;
         }
-}
+
         var setup = function() {
           staticcanvas = document.getElementById("tv_static");
           staticcontext = staticcanvas.getContext("2d");
         }
+ }
   function myStopFunction() {
     // staticcanvas.style.display="none";
     // clearInterval(makeNoise);
