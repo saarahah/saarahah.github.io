@@ -17,6 +17,8 @@
     
 <img id="video0alt" src="http://88.247.208.23/oneshotimage1?1479633548",     style="display:none">
 <img id="video1alt" src="http://216.139.5.26/axis-cgi/mjpg/video.cgi?camera=&amp;resolution=640x4808",     style="display:none">
+<img id="video2alt" src="http://88.247.208.23/oneshotimage1?1479633548",     style="display:none">
+<img id="video3alt" src="http://216.139.5.26/axis-cgi/mjpg/video.cgi?camera=&amp;resolution=640x4808",     style="display:none">
 
 <!-- <a href="page1.html">next</a> -->
     <script>
@@ -48,6 +50,8 @@
         
         vid0alt = document.getElementByID("video0alit");
         vid1alt=document.getElementByID("video1alt");
+        vid0alt = document.getElementByID("video2alit");
+        vid1alt=document.getElementByID("video3alt");
         
         setup();
         loaded = true;
@@ -58,14 +62,20 @@
             setTimeout(1000);
      
              tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
+            setTimeout(1000);
 
             tv_ctx.drawImage(vid2, 0,   160,      225, 225, 450,  0, 225, 225);
+            setTimeout(1000);
 
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
+            setTimeout(1000);
       
           if(loaded!=true){
            
             tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
+            tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
+            tv_ctx.drawImage(video2alt, 170, 40, 225, 225, 0,0,225,225);
+            tv_ctx.drawImage(video3alt, 170, 40, 225, 225, 0,0,225,225);
             
             tv_ctx.font      = "120px Courier";
             tv_ctx.strokeStyle="black";
