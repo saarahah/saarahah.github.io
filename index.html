@@ -28,7 +28,7 @@
     var time = 0;
     var intervalId = 0;
     var mouseontop=false;
-    var timer;
+   // var timer;
         
 //function clearTimer() {
 //        if (timer) {                
@@ -66,7 +66,7 @@
         
         setup();
        loaded = true;
-   }
+   
         
 // videoIsLoaded(function(){
 //       if(document.getElementById("video"+x).buffered.length)
@@ -88,7 +88,7 @@
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
 
       
-          onerror(){
+          onerror(function){
            
             tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
             tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
