@@ -60,7 +60,8 @@ function init(){
 
       
           onerror(function)(){
-           
+              
+            if(loaded == true){         
             tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
             tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
             tv_ctx.drawImage(video2alt, 170, 40, 225, 225, 0,0,225,225);
