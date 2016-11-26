@@ -65,20 +65,12 @@ function init(){
         }
 
       
-function vid0.onerror(){
-              
-           if(loaded == false){         
-           // tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
-           // tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
-           // tv_ctx.drawImage(video2alt, 170, 40, 225, 225, 0,0,225,225);
-            tv_ctx.drawImage(video3alt, 170, 40, 225, 225, 0,0,225,225);
- }
+function ImgErrorVideo(source){
+        source.src = "vid0";
+        source.onerror = "vid0alt"; 
+        return true; 
+}
             
-          
-             
-          
- 
-
 function updateMouse (){
   mouseontop=true;
 
