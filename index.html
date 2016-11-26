@@ -18,8 +18,16 @@
 
     
     <script>
+        
+         
+    var staticcanvas = null;
+    var staticcontext = null;
+    var time = 0;
+    var intervalId = 0;
+    var mouseontop=false;
     var loaded = false;
     function init(){
+        
         canvas = document.getElementById("tv_canvas");
         tv_ctx = canvas.getContext("2d");
 
