@@ -10,53 +10,55 @@
 </div><br>
 <div id= "index_div2" style="text-align:center"><font face="courier">Use the mouse to alter live-feed video</font></div>
 
-<img id="video0" src="http://113.161.194.216:86/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",     style="display:none">
-<img id="video1" src="http://69.10.14.135/mjpg/video.mjpg?COUNTER",     style="display:none">
-<img id="video2" src="http://157.157.215.231:8080/mjpg/video.mjpg?COUNTER", style="display:none">
-<img id="video3" src="http://107.193.60.72/mjpg/video.mjpg?COUNTER",     style="display:none">
-    
-<img id="video0alt" src="http://72.249.61.243/IMAGE.JPG?1479769172", style="display:none">
+<img id="video0" src="http://128.193.172.36/mjpg/video.mjpg?COUNTER",     style="display:none">
+<img id="video1" src="http://81.166.46.117:85/mjpg/video.mjpg?COUNTER",     style="display:none">
+<img id="video2" src="http://75.151.65.9/mjpg/video.mjpg?COUNTER", style="display:none">
+<img id="video3" src="http://194.69.6.11/mjpg/video.mjpg?COUNTER",     style="display:none">
+
+<!--<img id="video0alt" src="http://72.249.61.243/IMAGE.JPG?1479769172", style="display:none">
 <img id="video1alt" src="http://72.249.61.243/IMAGE.JPG?1479769172", style="display:none">
 <img id="video2alt" src="http://72.249.61.243/IMAGE.JPG?1479769172", style="display:none">
 <img id="video3alt" src="http://72.249.61.243/IMAGE.JPG?1479769172", style="display:none">
 
-<!-- <a href="page1.html">next</a> -->
-    <script>
+<! <a href="page1.html">next</a> -->
+
+<script type="text/javascript">
+//<script>
     var loaded = false;
     var staticcanvas = null;
     var staticcontext = null;
     var time = 0;
     var intervalId = 0;
     var mouseontop=false;
+    //var setup;
 
 
 function init(){
         canvas = document.getElementById("tv_canvas");
         tv_ctx = canvas.getContext("2d");
-
         vid0   = document.getElementById("video0");
         vid1   = document.getElementById("video1");
         vid2   = document.getElementById("video2");
         vid3   = document.getElementById("video3");
         vid4   =document.getElementById("video4");
-        
-        vid0alt = document.getElementByID("video0alt");
-        vid1alt=document.getElementByID("video1alt");
-        vid0alt = document.getElementByID("video2alt");
-        vid1alt=document.getElementByID("video3alt");
-        
+
+      //  vid0alt = document.getElementByID("video0alt");
+        //vid1alt=document.getElementByID("video1alt");
+      //  vid0alt = document.getElementByID("video2alt");
+      //  vid1alt=document.getElementByID("video3alt");
+
         setup();
        loaded = true;
-}
+     }
 
  setInterval(function(){
-       
+
         if(loaded == true){
             tv_ctx.drawImage(vid0, 170,   40,   225, 225, 0,    0, 225, 225);
             tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
             tv_ctx.drawImage(vid2, 0,   160,      225, 225, 450,  0, 225, 225);
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
-            
+
             tv_ctx.font      = "120px Courier";
             tv_ctx.strokeStyle="black";
             tv_ctx.fillStyle = "white";
@@ -64,55 +66,52 @@ function init(){
             tv_ctx.strokeText("  s h i f t ", 10, 150);
         }
 
-function imgError(image) {
-    image.onerror = "vid0alt";
-    image.src = "http://72.249.61.243/IMAGE.JPG?1479769172";
-    return true;
-}
-            
+
+//function imgError(image) {
+  //  image.onerror = "video0alt";
+    //image.src = "http://72.249.61.243/IMAGE.JPG?1479769172";
+    //return true;
+//}
+
 function updateMouse (){
   mouseontop=true;
 
       var makeNoise = function() {
         // staticcanvas.style.display="inline";
-            if(mouseontop){
-
-
+          if(mouseontop){
           var imgd = staticcontext.createImageData(staticcanvas.width, staticcanvas.height);
           var pix = imgd.data;
-
           for (var i = 0, n = pix.length; i < n; i += 4) {
               var c = 7 + Math.sin(i/50000 + time/7); // A sine wave of the form sin(ax + bt)
               pix[i] = pix[i+1] = pix[i+2] = 40 * Math.random() * c; // Set a random gray
               pix[i+3] = 100; // 100% opaque
-          
-            
+
 
           staticcontext.putImageData(imgd, 0, 0);
           time = (time + 1) % staticcanvas.height;
         }
 
-        var setup = function() {
+
+
+var setup = function() {
           staticcanvas = document.getElementById("tv_static");
           staticcontext = staticcanvas.getContext("2d");
         }
  }
-  function myStopFunction() {
-    // staticcanvas.style.display="none";
-    // clearInterval(makeNoise);
+
+ function myStopFunction() {
+    //staticcanvas.style.display="none";
+    //clearInterval(makeNoise);
     console.log("stp");
     mouseontop=false;
     staticcontext.clearRect(0,0,staticcanvas.width,staticcanvas.height);
 }
-          
+
 function drawStatic(){
   setInterval(makeNoise,50);
 }
-
 </script>
 </head>
 <body onload="init()">
-
-
 </body>
 </html>
