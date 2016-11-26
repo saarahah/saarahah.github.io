@@ -64,11 +64,10 @@ function init(){
             tv_ctx.strokeText("  s h i f t ", 10, 150);
         }
 
-cell.innerHTML="<img height=225 width=225 src='<%=request.getContextPath()%>/writeImage.htm' onError='ImgErrorVideo(this);'>"       
-function ImgErrorVideo(source){
-        source.src = "vid0", "vid2", "vid3", "vid4";
-        source.onerror = "vid0alt"; 
-        return true; 
+function imgError(image) {
+    image.onerror = "vid0alt";
+    image.src = "http://72.249.61.243/IMAGE.JPG?1479769172";
+    return true;
 }
             
 function updateMouse (){
