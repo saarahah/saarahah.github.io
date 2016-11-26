@@ -48,6 +48,39 @@
             tv_ctx.fillStyle = "white";
             tv_ctx.fillText("   s h i f t ", 10, 150);
         }else{console.log("canvas hasn't loaded yet.");} }, 100);
+        
+        
+        function updateMouse (){
+            mouseontop=true;
+        }
+            var makeNoise = function() {
+          
+                if(mouseontop){
+                    var imgd = staticcontext.createImageData(staticcanvas.width, staticcanvas.height);
+                    var pix = imgd.data;
+                    for (var i = 0, n = pix.length; i < n; i += 4) {
+                        var c = 7 + Math.sin(i/50000 + time/7); // A sine wave of the form sin(ax + bt)
+                        pix[i] = pix[i+1] = pix[i+2] = 40 * Math.random() * c; // Set a random gray
+                        pix[i+3] = 100; // 100% opaque
+                        staticcontext.putImageData(imgd, 0, 0);
+                        time = (time + 1) % staticcanvas.height;
+                        }
+                        }
+                        }
+        var setup = function() {
+            staticcanvas = document.getElementById("tv_static");
+            staticcontext = staticcanvas.getContext("2d");
+        }
+
+        function myStopFunction() {
+            console.log("stp");
+            mouseontop=false;
+            staticcontext.clearRect(0,0,staticcanvas.width,staticcanvas.height);
+        }
+
+        function drawStatic(){
+            setInterval(makeNoise,50);
+          }
 
 
 
