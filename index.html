@@ -56,22 +56,23 @@ function init(){
             tv_ctx.drawImage(vid1, 50,    50,     225, 225, 225,  0, 255, 255);
             tv_ctx.drawImage(vid2, 0,   160,      225, 225, 450,  0, 225, 225);
             tv_ctx.drawImage(vid3, 100,   100,   225, 225, 675,  0, 225, 225);
-        }
-
-      
- vid0.onerror(function(){
-              
-            if(loaded == !true){         
-           // tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
-           // tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
-           // tv_ctx.drawImage(video2alt, 170, 40, 225, 225, 0,0,225,225);
-            tv_ctx.drawImage(video3alt, 170, 40, 225, 225, 0,0,225,225);
             
             tv_ctx.font      = "120px Courier";
             tv_ctx.strokeStyle="black";
             tv_ctx.fillStyle = "white";
             tv_ctx.fillText("  s h i f t ", 10, 150);
             tv_ctx.strokeText("  s h i f t ", 10, 150);
+        }
+
+      
+ vid0.onerror(function(){
+              
+            if(loaded == true){         
+           // tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
+           // tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
+           // tv_ctx.drawImage(video2alt, 170, 40, 225, 225, 0,0,225,225);
+            tv_ctx.drawImage(video3alt, 170, 40, 225, 225, 0,0,225,225);
+            
           }
              
           
