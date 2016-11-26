@@ -65,15 +65,15 @@ function init(){
         }
 
       
- vid0.onerror(function(){
+ vid0.addEventListener(error,
               
-            if(loaded == true){         
+           // if(loaded == true){         
            // tv_ctx.drawImage(video0alt, 170, 40, 225, 225, 0,0,225,225);
            // tv_ctx.drawImage(video1alt, 170, 40, 225, 225, 0,0,225,225);  
            // tv_ctx.drawImage(video2alt, 170, 40, 225, 225, 0,0,225,225);
             tv_ctx.drawImage(video3alt, 170, 40, 225, 225, 0,0,225,225);
             
-          }
+          
              
           
  
@@ -112,9 +112,10 @@ function updateMouse (){
     mouseontop=false;
     staticcontext.clearRect(0,0,staticcanvas.width,staticcanvas.height);
 }
+          
 function drawStatic(){
   setInterval(makeNoise,50);
-
+}
 
 </script>
 </head>
