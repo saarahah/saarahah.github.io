@@ -68,8 +68,8 @@
                         staticcontext.putImageData(imgd, 0, 0);
                         time = (time + 1) % staticcanvas.height;
                         
-                        }
-                        }
+                }
+                        
             
         var setup = function() {
             staticcanvas = document.getElementById("tv_static");
@@ -85,6 +85,7 @@
         function drawStatic(){
             setInterval(makeNoise,50);
           }
+            }
 
 
 
