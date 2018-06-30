@@ -13,6 +13,14 @@
 .title{
   font-weight : bold;
 }
+
+.label_div{
+    float: left;
+}
+
+.audio_div{
+    float: right;
+}
 /* body{
   background : black;
 } */
