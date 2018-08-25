@@ -37,17 +37,28 @@
 <canvas id="inter4"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
 <canvas id="inter5"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
 
-<img id="imgurl0" src="http://108.226.17.63:8090/mjpg/video.mjpg?COUNTER";    style="display:none">
-<img id="imgurl1" src="http://173.13.130.113:8082/__live.jpg?&&&";    style="display:none">
-<img id="imgurl2" src="http://88.190.98.55/mjpg/video.mjpg?COUNTER";    style="display:none">
-<img id="imgurl3" src="http://62.12.147.52/mjpg/video.mjpg?COUNTER"; style="display:none">
-<img id="imgurl4" src="http://190.112.225.27/mjpg/video.mjpg?COUNTER";               style="display:none">
-<img id="imgurl5" src="http://38.124.158.50:8082/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER";          style="display:none">
-
+<video id="video0" loop autoplay style="display:none">
+<source src="mall1.mp4" type="video/mp4">
+</video>
+<video id="video0" loop autoplay style="display:none">
+<source src="mall2.mp4" type="video/mp4">
+</video>
+<video id="video0" loop autoplay style="display:none">
+<source src="mall3.mp4" type="video/mp4">
+</video>
+<video id="video0" loop autoplay style="display:none">
+<source src="mall4.mp4" type="video/mp4">
+</video>
+<video id="video0" loop autoplay style="display:none">
+<source src="beach3.mp4" type="video/mp4">
+</video>
+<video id="video0" loop autoplay style="display:none">
+<source src="mall1.mp4" type="video/mp4">
+</video>
 
 <script>
     var loaded = false;
-    var imgurl0, canvas0, context0;
+    var video0, canvas0, context0;
     var canvArray       = []; //red, green, blue, purple, yellow, black
     var cntxtArray      = [];
     var clipArray       = [];
@@ -58,7 +69,7 @@
 
        function init(){
          for (var i = 0; i < 6; i++){
-             imgurlArr[i]  = document.getElementById("imgurl" + i);
+             imgurlArr[i]  = document.getElementById("video" + i);
              canvArray[i]  = document.getElementById("page3_canv" + i);
             //  canvArray[i].width  = 900;
             //  canvArray[i].height = 900;
