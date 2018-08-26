@@ -17,9 +17,12 @@
 <div id="second_quote_div"; style="text-align:center";>
     <a href="newtransparent.html" id="second_quote"><font face="courier">"Off-camera lives are unverifiable."</font></a>
 </div>
-<img   id="imgurl2" src="http://173.162.100.238:81/mjpg/video.mjpg" style="display: none";   >
+<video id="video0" loop autoplay style="display:none">
+  <source src="landro1.mp4" type="video/mp4">
+</video>
+    
 <video id="video1" loop autoplay style="display:none">
-  <source src="pool.mp4" type="video/mp4">
+  <source src="landro2.mp4" type="video/mp4">
 </video>
 <img src="http://173.162.100.238:81/mjpg/video.mjpg" style='display:none'>
 
@@ -36,7 +39,7 @@ var videocontext;
 var mousearray=[];
 
 function init(){
-    livefeed     = document.getElementById("imgurl2");
+    livefeed     = document.getElementById("video0");
     livecanvas   = document.getElementById("page2_canv0");
     livecontext  = livecanvas.getContext("2d");
     video1       = document.getElementById("video1");
