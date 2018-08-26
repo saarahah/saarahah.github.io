@@ -40,17 +40,29 @@ shape and a destiny."</font></a>
 <canvas id="inter4"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
 <canvas id="inter5"; class="intersectionCanvas"; width="600"; height="600"; style="display:none";></canvas>
 
-<img id="imgurl0" src="http://210.249.39.236/mjpg/video.mjpg?COUNTER";    style="display:none">
-<img id="imgurl1" src="http://173.13.132.110:9001/mjpg/video.mjpg?COUNTER";    style="display:none">
-<img id="imgurl2" src="http://110.170.49.140:60001/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER";    style="display:none">
-<img id="imgurl3" src="http://138.234.104.30:8080/mjpg/video.mjpg?COUNTER"; style="display:none">
-<img id="imgurl4" src="http://131.95.3.162/mjpg/video.mjpg?COUNTER";               style="display:none">
-<img id="imgurl5" src="http://118.69.55.218:90/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER";          style="display:none">
+<video id="video0" loop autoplay style="display:none">
+<source src="cut1.mp4" type="video/mp4">
+</video>
+<video id="video1" loop autoplay style="display:none">
+<source src="cut2.mp4" type="video/mp4">
+</video>
+<video id="video2" loop autoplay style="display:none">
+<source src="cut3.mp4" type="video/mp4">
+</video>
+<video id="video3" loop autoplay style="display:none">
+<source src="cut4.mp4" type="video/mp4">
+</video>
+<video id="video4" loop autoplay style="display:none">
+<source src="cut5.mp4" type="video/mp4">
+</video>
+<video id="video5" loop autoplay style="display:none">
+<source src="cut6.mp4" type="video/mp4">
+</video>
 
 
 <script>
     var loaded = false;
-    var imgurl0, canvas0, context0;
+    var video0, canvas0, context0;
     var canvArray       = []; //red, green, blue, purple, yellow, black
     var cntxtArray      = [];
     var clipArray       = [];
@@ -61,7 +73,7 @@ shape and a destiny."</font></a>
 
        function init(){
          for (var i = 0; i < 6; i++){
-             imgurlArr[i]  = document.getElementById("imgurl" + i);
+             imgurlArr[i]  = document.getElementById("video" + i);
              canvArray[i]  = document.getElementById("page3_canv" + i);
             //  canvArray[i].width  = 900;
             //  canvArray[i].height = 900;
