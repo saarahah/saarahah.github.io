@@ -19,15 +19,18 @@
 <div id="first_quote_div"; style="text-align:center";>
     <a href="nextcut.html"><font face="courier">“People will not die. Isn't this the creed of the new culture? People will be absorbed in streams of information."</font></a>
 </div>
-<img id="day0" src="http://194.46.39.74:8080/mjpg/video.mjpg?COUNTER",            style="display:none">
-<img id="day1" src="http://172.96.34.45:8080/oneshotimage1?COUNTER",    style="display:none">
-<img id="day2" src="http://172.96.34.45:8080/oneshotimage1?COUNTER",    style="display:none">
-<img id="day3" src="http://24.240.190.58:91/mjpg/video.mjpg?COUNTER",   style="display:none" >
-
-<img id="imgurl3" src="http://82.160.139.6/jpg/image.jpg?COUNTER",     style="display:none">
-<img id="imgurl12" src="http://98.175.244.18:8090/cgi-bin/viewer/video.jpg?r=COUNTER", style="display:none">
-<img id="imgurl1" src="http://194.46.39.74:8080/mjpg/video.mjpg?COUNTER",  style="display:none">
-<img id="imgurl0" src="http://145.32.101.38/mjpg/video.mjpg?COUNTER",           style="display:none">
+<video id="video0" loop autoplay style="display:none">
+<source src="church1.mp4" type="video/mp4">
+</video>
+<video id="video1" loop autoplay style="display:none">
+<source src="church2.mp4" type="video/mp4">
+</video>
+<video id="video2" loop autoplay style="display:none">
+<source src="church3.mp4" type="video/mp4">
+</video>
+<video id="video3" loop autoplay style="display:none">
+<source src="church4.mp4" type="video/mp4">
+</video>
 
 
 <script>
@@ -40,69 +43,28 @@
     var interArray      = [];
     var interCntxtArray = [];
     var imgurlArr       = [];
-    var dayArr         = [];
     var opacArray       = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
     var numberOfCanvases= 4;
-    var fullTime;
-    // var i=0;
-
-    for (var i = 0; i < numberOfCanvases; i++){
-    imgurlArr[i]  = document.getElementById("imgurl" + i);
-    dayArr[i] =document.getElementById("day"+i);
-    canvArray[i]  = document.getElementById("page1_canv" + i);
-    cntxtArray[i]     = canvArray[i].getContext("2d");
-    canvArray[i].style.marginLeft=50;
-    canvArray[i].style.marginTop=2;
-  }
-
-function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    // document.getElementById('').innerHTML =
-    fullTime= h;
-    var t = setTimeout(startTime, 500);
-    // console.log(fullTime);
-}
-function checkTime(i) {
-    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-}
        function init(){
-         if (fullTime > 6 && fullTime < 21){
-           imgurlArr[i]; //use firstarray
-           console.log("day");
-         }else{ console.log("pannie"); // use secondarray
-          dayArr[i];
-
-
+         for (var i = 0; i < numberOfCanvases; i++){
+             imgurlArr[i]  = document.getElementById("video" + i);
+             canvArray[i]  = document.getElementById("page1_canv" + i);
+             cntxtArray[i]     = canvArray[i].getContext("2d");
+             canvArray[i].style.marginLeft=50;
+             canvArray[i].style.marginTop=2;
              console.log("done with ", i);
-
+         }
          loaded = true;
       }
-    }
-
-
       setInterval(function(){
          if(loaded == true){
           // console.log("reloading picture", opacArray);
             for (var i = 0; i < numberOfCanvases; i++){
                 cntxtArray[i].globalAlpha = opacArray[i];
                 cntxtArray[i].clearRect(0, 0, 1000, 1000);
-                if (fullTime > 6 && fullTime < 21){
                 cntxtArray[i].drawImage(imgurlArr[i], 10, 10, 700, 700);
-              }else{
-                cntxtArray[i].drawImage(dayArr[i], 10, 10, 700, 700);
-}
             }
         }else{console.log("canvas hasn't loaded yet.");} }, 100);
-
-
-
-
     function getMousePosition(event) {
         if (loaded){
             var area = canvArray[0].getBoundingClientRect();
@@ -118,20 +80,14 @@ function checkTime(i) {
              opacArray = [first, second, third, fourth];
         }
     }
-
-
-
     function firstPoint(x, y) {
         upperLeftX = x;
         upperLeftY = y;
     }
-
-
     function drawOnBuffer1(x, y) {
         console.log("draw on buffer");
         finalX = x;
         finalY = y;
-
         if (upperLeftX - finalX == 0 && upperLeftY - finalY == 0) {
             //console.log("it happened");
             finalX += 1;
@@ -139,7 +95,6 @@ function checkTime(i) {
             }
         //
     }
-
 </script>
 
 </body>
