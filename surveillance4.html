@@ -28,7 +28,7 @@
 
 
 <script>
-var livefeed;
+//var livefeed;
 var livecanvas;
 var livecontext;
 var loaded = false;
@@ -41,10 +41,11 @@ var videocontext;
 var mousearray=[];
 
 function init(){
-    //livefeed     = document.getElementById("imgurl2");
+     video1       = document.getElementById("video1");
+   // livefeed     = document.getElementById("video2");
     livecanvas   = document.getElementById("page2_canv0");
     livecontext  = livecanvas.getContext("2d");
-    video1       = document.getElementById("video1");
+   
     video2       = document.getElementById("video2");
     // videocanvas  = document.getElementById("videocanv");
     videocontext = livecanvas.getContext("2d");
