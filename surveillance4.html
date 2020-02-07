@@ -5,9 +5,9 @@
 <title></title>
 
 </head>
-<body onload="init()" onmousemove="getMousePosition(event)"
+<body onload="init()" onmousemove="getMousePosition(event)">
 <link rel="stylesheet" href="stylesheetasdf.css" type="text/css">
-<canvas id="page2_canv0"    width="600"; height="600"; style="postion:absolute; left=0px; right=0px"></canvas>
+<canvas id="page2_canv0";    width="600"; height="600"; style="postion:absolute; left=0px; right=0px"></canvas>
 
 <canvas id="trail0";    width="600"; height="600"></canvas>
 <canvas id="trail1";    width="600"; height="600"></canvas>
@@ -113,7 +113,7 @@ setInterval(function(){
         context.drawImage(video1,0,0,600,600);
         context.restore();
     }
-    function getMousePosition(event) {
+    function getMousePosition(event){
         if (loaded){
             var area = trail0.getBoundingClientRect();
 
